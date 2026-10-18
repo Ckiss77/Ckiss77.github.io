@@ -1,0 +1,1 @@
+var e=`https://chatchai-djai-card.c-kiss77.chatgpt.site`,t=t=>`${e}${t.startsWith(`/`)?t:`/${t}`}`;export{t as n,e as t};
