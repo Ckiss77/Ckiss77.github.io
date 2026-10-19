@@ -1,1 +1,0 @@
-var e=`https://becard-public-api.c-kiss77.workers.dev`,t=t=>`${e}${t.startsWith(`/`)?t:`/${t}`}`;export{t as n,e as t};
