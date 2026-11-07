@@ -43,12 +43,6 @@
     .visual{position:relative;min-height:680px;overflow:hidden;background:#140f0e}
     .portrait{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:51% 42%;filter:saturate(.78) contrast(1.03);transform:scale(1.015);animation:portraitIn 1.4s cubic-bezier(.2,.7,.2,1) both}
     .visual:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#08070728 0%,transparent 32%,#08070724 52%,#080707f0 100%),linear-gradient(90deg,transparent 65%,#0b0909 100%);pointer-events:none}
-    .photo-halo{position:absolute;z-index:1;width:82%;aspect-ratio:1;left:9%;top:12%;border:1px solid #efcf9952;border-radius:50%;box-shadow:0 0 40px #f5d7a523,inset 0 0 30px #c2243220;animation:halo 28s linear infinite}
-    .photo-halo:before,.photo-halo:after{content:"";position:absolute;border:1px solid #b91f316e;border-radius:50%;inset:8%;transform:rotate(-28deg) scaleY(.42)}
-    .photo-halo:after{inset:-9%;border-color:#f0d5a549;transform:rotate(33deg) scaleY(.32)}
-    .scanline{position:absolute;z-index:2;left:0;right:0;top:-20%;height:2px;background:linear-gradient(90deg,transparent,#fff0c9a8,#bd1f36,transparent);box-shadow:0 0 22px #d8a961;animation:scan 7s ease-in-out infinite}
-    .brand-lockup{position:absolute;z-index:3;top:25px;left:25px;display:flex;align-items:center;gap:10px;padding:9px 13px 9px 9px;border:1px solid #e7cc9b48;border-radius:50px;background:#080707a8;backdrop-filter:blur(14px)}
-    .brand-lockup img{width:42px;height:42px;object-fit:cover;border-radius:50%}.brand-lockup strong{display:block;font-size:10px;letter-spacing:.15em}.brand-lockup small{display:block;color:#c4a66f;font-size:8px;letter-spacing:.21em;margin-top:4px}
     .photo-caption{position:absolute;z-index:3;left:28px;bottom:29px;color:#f6e8d4;font-size:9px;letter-spacing:.24em;text-transform:uppercase;display:flex;align-items:center;gap:9px}.photo-caption i{width:6px;height:6px;border-radius:50%;background:#c52235;box-shadow:0 0 14px #ff3049}
     .visual-corner{position:absolute;z-index:3;right:25px;bottom:27px;color:#e2c9997a;font-size:9px;letter-spacing:.22em;writing-mode:vertical-rl}
     .content{position:relative;z-index:2;padding:46px clamp(26px,5vw,62px) 36px;display:flex;flex-direction:column;justify-content:center}
@@ -66,8 +60,6 @@
     .contact-icon{width:34px;height:34px;display:grid;place-items:center;border-radius:11px;background:linear-gradient(145deg,#96202c,#b58a52);color:white;font-size:12px;font-weight:700;flex:none;box-shadow:0 5px 20px #7f1d272e}
     .contact small{display:block;font-size:8px;letter-spacing:.18em;color:#a89d91;margin-bottom:4px}.contact strong{font-size:12px;font-weight:550;letter-spacing:.02em}
     .line-card{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px;border:1px solid #8abf8370;border-radius:14px;background:linear-gradient(110deg,#162117c9,#0b100dcc);text-decoration:none;margin-bottom:20px;transition:transform .2s,border-color .2s}.line-card:hover{transform:translateY(-2px);border-color:#b8dfa9}.line-meta{display:flex;align-items:center;gap:12px}.line-icon{display:grid;place-items:center;width:34px;height:34px;background:#4d9f50;border-radius:11px;font-weight:800;color:white;font-size:10px}.line-card small{display:block;color:#a8b7a3;letter-spacing:.18em;font-size:8px;margin-bottom:4px}.line-card strong{font-size:12px}.line-arrow{color:#cce5b9;font-size:16px}
-    .quick-qr{display:flex;align-items:center;gap:14px;padding:13px;border:1px solid #e1c38b3d;border-radius:16px;background:linear-gradient(125deg,#20171399,#0c0b0bcc);margin:0 0 20px}
-    .quick-qr img{width:74px;height:74px;object-fit:contain;background:white;padding:4px;border-radius:9px;flex:none}.quick-qr small{display:block;color:#beaa8c;font-size:8px;letter-spacing:.16em;margin-bottom:5px}.quick-qr strong{font-size:11px}.quick-qr a{display:inline-block;color:#e7c98d;font-size:10px;text-decoration:none;margin-top:6px}.quick-qr a:hover{text-decoration:underline}
     .actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
     .action{min-height:58px;border:1px solid #dfc49142;border-radius:13px;background:linear-gradient(120deg,#ffffff0a,#ffffff03);color:#f4ecdf;display:flex;align-items:center;gap:11px;padding:11px 13px;text-align:left;cursor:pointer;text-decoration:none;transition:transform .2s,border-color .2s,box-shadow .2s}
     .action:hover{transform:translateY(-2px);border-color:#e6c98caa;box-shadow:0 7px 25px #c59b501c}.action .action-icon{font-size:17px;color:#e5c38a;width:24px;text-align:center}.action strong{display:block;font-size:11px;font-weight:650}.action small{display:block;color:#a89c8e;font-size:9px;margin-top:3px}
@@ -78,12 +70,10 @@
     .toast{position:fixed;z-index:20;left:50%;bottom:24px;transform:translate(-50%,20px);opacity:0;pointer-events:none;border:1px solid #e2c58a70;background:#151210;color:#f5e6ca;padding:12px 17px;border-radius:50px;font-size:12px;box-shadow:0 10px 32px #0009;transition:opacity .2s,transform .2s}.toast.show{opacity:1;transform:translate(-50%,0)}
     @keyframes rise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
     @keyframes ambient{to{transform:translate(34px,-30px) scale(1.12);opacity:.65}}
-    @keyframes halo{to{transform:rotate(360deg)}}
-    @keyframes scan{0%,100%{top:-4%;opacity:0}15%,80%{opacity:.85}92%{top:95%;opacity:0}}
     @keyframes portraitIn{from{transform:scale(1.08);filter:saturate(.55) brightness(.75)}to{transform:scale(1.015);filter:saturate(.78) brightness(1)}}
     @media(max-width:850px){.card{grid-template-columns:minmax(260px,.75fr) minmax(360px,1fr);min-height:650px}.visual{min-height:650px}.content{padding:34px 28px}.role-row{margin-bottom:16px}}
-    @media(max-width:680px){.wrap{width:min(calc(100% - 24px),520px)}.topbar{height:76px}.brand img{width:42px;height:42px}.top-link{display:none}.card{display:flex;flex-direction:column;margin:22px auto 12px;border-radius:22px}.visual{min-height:0;height:390px;flex:none}.portrait{object-position:50% 37%}.photo-halo{top:10%;left:8%;width:84%}.brand-lockup{top:17px;left:17px}.photo-caption{left:20px;bottom:19px}.visual-corner{right:18px;bottom:18px}.content{padding:30px 22px 24px}h1{font-size:clamp(34px,9.5vw,46px);margin:18px 0 10px}.thai-name{margin-bottom:23px}.bottomline{font-size:8px;padding:14px 4px 25px}}
-    @media(max-width:390px){.actions{grid-template-columns:1fr}.quick-qr{gap:10px}.quick-qr img{width:66px;height:66px}.contact strong{font-size:11px}}
+    @media(max-width:680px){.wrap{width:min(calc(100% - 24px),520px)}.topbar{height:76px}.brand img{width:42px;height:42px}.top-link{display:none}.card{display:flex;flex-direction:column;margin:22px auto 12px;border-radius:22px}.visual{min-height:0;height:390px;flex:none}.portrait{object-position:50% 37%}.photo-caption{left:20px;bottom:19px}.visual-corner{right:18px;bottom:18px}.content{padding:30px 22px 24px}h1{font-size:clamp(34px,9.5vw,46px);margin:18px 0 10px}.thai-name{margin-bottom:23px}.bottomline{font-size:8px;padding:14px 4px 25px}}
+    @media(max-width:390px){.actions{grid-template-columns:1fr}.contact strong{font-size:11px}}
     @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}.portrait{transform:none}}
   </style>
 </head>
@@ -98,8 +88,6 @@
       <article class="card" aria-label="Digital name card for Ms. Patcharee Pasayawan">
         <section class="visual" aria-label="Patcharee profile and DC365 Academy brand">
           <img class="portrait" src="/patcharee-profile.jpg" alt="Ms. Patcharee Pasayawan">
-          <div class="photo-halo" aria-hidden="true"></div><div class="scanline" aria-hidden="true"></div>
-          <div class="brand-lockup"><img src="/patcharee-logo.jpg" alt=""><div><strong>DC365 ACADEMY</strong><small>PEOPLE · IDEAS · TECHNOLOGY</small></div></div>
           <div class="photo-caption"><i></i> SALES SPECIALIST · DIGITAL PROFILE</div><span class="visual-corner" aria-hidden="true">PEOPLE · IDEAS · TECHNOLOGY</span>
         </section>
         <section class="content">
@@ -114,7 +102,6 @@
             <a class="contact" href="mailto:contact@dc365.online"><span class="contact-icon" aria-hidden="true">@</span><span><small>EMAIL</small><strong>contact@dc365.online</strong></span></a>
           </div>
           <a class="line-card" href="https://line.me/R/ti/p/~4318686" target="_blank" rel="noopener noreferrer"><span class="line-meta"><span class="line-icon" aria-hidden="true">LINE</span><span><small>LINE ID</small><strong>4318686</strong></span></span><span class="line-arrow" aria-hidden="true">↗</span></a>
-          <div class="quick-qr"><img src="/patcharee-provided-qr.png" alt="DC365 quick link QR code"><div><small>DC365 QUICK LINK</small><strong>Open the DC365 link</strong><br><a href="https://s.dc365.online/t" target="_blank" rel="noopener noreferrer">s.dc365.online/t ↗</a></div></div>
           <div class="actions" aria-label="Digital card actions">
             <a class="action" href="/patcharee.vcf" download><span class="action-icon" aria-hidden="true">＋</span><span><strong>Add to Contacts</strong><small>Save contact card</small></span></a>
             <button class="action" id="shareButton" type="button"><span class="action-icon" aria-hidden="true">↗</span><span><strong>Share Card</strong><small>Send this profile</small></span></button>
