@@ -46,6 +46,41 @@
     @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
   </style>
   <style>.neo-page:before{opacity:.035}</style>
+  <style>
+    .neo-action svg{width:36px;height:36px;flex:0 0 36px;padding:8px;border-radius:12px;background:#f47a1f18;color:var(--orange-light)}
+    .neo-action.primary svg{background:#1b120f20;color:#28180d}
+    .neo-tools{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:18px;max-width:520px}
+    .neo-tool{min-height:72px;display:flex;align-items:center;gap:11px;padding:11px 13px;border:1px solid #ffffff20;border-radius:15px;background:linear-gradient(145deg,#211f1c,#171615);color:var(--paper);font-size:inherit;text-align:left;transition:transform .18s,border-color .18s,background .18s;cursor:pointer}
+    .neo-tool:hover{transform:translateY(-2px);border-color:#f47a1f86;background:linear-gradient(145deg,#2a2018,#191715)}
+    .neo-tool:active{transform:scale(.985)}
+    .neo-tool:focus-visible{outline:3px solid #ffc071;outline-offset:3px}
+    .neo-tool-mark{width:38px;height:38px;flex:0 0 38px;display:grid;place-items:center;border-radius:12px;background:#f47a1f20;color:#ffc071}
+    .neo-tool-mark svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+    .neo-tool-mark.text-mark{font-size:10px;font-weight:800;letter-spacing:.03em}
+    .neo-tool-copy{display:grid;gap:3px;min-width:0}
+    .neo-tool-copy strong{font-size:13px;line-height:1.2}
+    .neo-tool-copy small{font-size:10px;line-height:1.35;color:#b9b2a8}
+    .neo-tool-qr{grid-column:1/-1;min-height:62px;border-color:#f47a1f63;background:linear-gradient(105deg,#2b1b11,#191715 75%)}
+    .neo-tool-qr .neo-tool-mark{background:linear-gradient(145deg,#ffb05d,#e66c18);color:#21140c}
+    dialog.neo-dialog{width:min(390px,calc(100% - 28px));max-height:calc(100svh - 28px);overflow-y:auto;overscroll-behavior:contain;padding:0;border:1px solid #f47a1f88;border-radius:22px;background:radial-gradient(ellipse at 50% 0%,#f47a1f12,transparent 48%),#191817;color:var(--paper);box-shadow:0 24px 90px #000b}
+    dialog.neo-dialog::backdrop{background:#050505cf;backdrop-filter:blur(6px)}
+    .neo-dialog-inner{padding:18px;text-align:center}
+    .neo-dialog-top{display:flex;align-items:center;justify-content:space-between;gap:12px;text-align:left}
+    .neo-dialog-top h2{margin:0;font-size:17px;line-height:1.25}
+    .neo-close{width:40px;height:40px;flex:0 0 40px;border:1px solid var(--line);border-radius:50%;background:#ffffff0a;color:#fff;font-size:22px;cursor:pointer}
+    .neo-dialog-kicker{margin:12px 0 0;color:var(--orange-light);font-size:10px;font-weight:700;letter-spacing:.14em}
+    .neo-qr-tabs{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin:12px auto 0;padding:4px;border:1px solid #ffffff14;border-radius:13px;background:#0f0e0d}
+    .neo-qr-tab{min-height:38px;padding:7px 9px;border:0;border-radius:9px;background:transparent;color:#b9b2a8;font-size:11px;font-weight:600;cursor:pointer}
+    .neo-qr-tab[aria-pressed="true"]{background:#382318;color:#ffd2a5;box-shadow:inset 0 0 0 1px #f47a1f58}
+    .neo-qr-tab:focus-visible{outline:2px solid #ffc071;outline-offset:2px}
+    .neo-dialog-image{display:block;width:min(244px,68vw);height:auto;max-height:42svh;aspect-ratio:1/1;margin:15px auto 12px;padding:7px;object-fit:contain;border:1px solid #ffffff22;border-radius:18px;background:#fff;box-shadow:0 10px 35px #0006}
+    .neo-dialog-note{margin:0;color:#c8c0b6;font-size:12px;line-height:1.5;overflow-wrap:anywhere}
+    .neo-dialog-note a{color:#ffc17f;text-decoration:none}
+    .neo-dialog-action{display:inline-flex;align-items:center;justify-content:center;min-height:42px;margin-top:12px;padding:0 17px;border:1px solid #f47a1f70;border-radius:12px;background:#f47a1f16;color:#ffd0a0;text-decoration:none;font-size:12px;font-weight:700;transition:background .18s,border-color .18s}
+    .neo-dialog-action:hover{background:#f47a1f28;border-color:#f47a1f}
+    @media(max-width:420px){.neo-tools{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.neo-tool{min-height:68px;padding:9px}.neo-tool-qr{min-height:58px}.neo-tool-copy strong{font-size:12px}.neo-tool-copy small{font-size:9px}.neo-dialog-inner{padding:14px}.neo-dialog-image{width:min(224px,66vw);margin:12px auto 10px}.neo-dialog-kicker{margin-top:9px}.neo-qr-tabs{margin-top:9px}}
+    @media(prefers-reduced-motion:reduce){.neo-tool,.neo-dialog-action{transition:none}}
+  </style>
 </head>
 <body>
   <main class="neo-page">
@@ -70,7 +105,11 @@
             <a class="neo-icon-link" href="mailto:phongpheat@gmail.com" aria-label="Email phongpheat@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="m4 7 8 6 8-6"/></svg><span>phongpheat@gmail.com</span></a>
             <a class="neo-icon-link" href="https://line.me/ti/p/~phongpheat" target="_blank" rel="noopener noreferrer" aria-label="Add LINE ID phongpheat"><span aria-hidden="true" style="font-weight:700;color:#8de24b">LINE</span><span>phongpheat</span></a>
           </div>
-          <div class="neo-tools" aria-label="Contact card tools"><button class="neo-tool" id="share-card" type="button">Share Becard</button><button class="neo-tool" type="button" data-qr-kind="becard">Becard QR Code</button><button class="neo-tool" id="write-nfc" type="button">Write to NFC</button></div>
+          <div class="neo-tools" aria-label="Contact card tools">
+            <button class="neo-tool" id="share-card" type="button"><span class="neo-tool-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 15V3m0 0L7.5 7.5M12 3l4.5 4.5"/><path d="M5 12.5v6A2.5 2.5 0 0 0 7.5 21h9a2.5 2.5 0 0 0 2.5-2.5v-6"/></svg></span><span class="neo-tool-copy"><strong>Share Card</strong><small>Send your contact profile</small></span></button>
+            <button class="neo-tool" id="write-nfc" type="button"><span class="neo-tool-mark text-mark" aria-hidden="true">NFC</span><span class="neo-tool-copy"><strong>Write to NFC</strong><small>Save this profile to a tag</small></span></button>
+            <button class="neo-tool neo-tool-qr" id="show-qr" type="button"><span class="neo-tool-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3z"/><path d="M14 14h3v3h-3zM19 14h2M19 17v4M14 20h3"/></svg></span><span class="neo-tool-copy"><strong>Show QR Code</strong><small>Choose your Becard profile or company link</small></span></button>
+          </div>
           <p class="neo-status" id="action-status" role="status" aria-live="polite"></p>
         </div>
         <figure class="neo-photo-wrap"><span class="neo-orbit-dot" aria-hidden="true"></span><div class="neo-photo-frame"><img src="/suttichai-profile.png" alt="Suttichai Phongpheat wearing glasses and a dark suit" width="216" height="218" fetchpriority="high" /><figcaption class="neo-photo-caption">NEO PLASTOMER</figcaption></div></figure>
@@ -79,14 +118,74 @@
         <div class="neo-section-title"><h2 id="company-title">Company Information</h2><p>Details from the provided business card</p></div>
         <div class="neo-company"><img class="neo-company-logo" src="/neo-plastomer-logo.jpg" alt="NEO PLASTOMER logo" width="94" height="68" loading="lazy" /><div class="neo-company-info"><small>COMPANY</small><strong>NEO PLASTOMER CO., LTD.</strong><a href="https://www.neoplast.biz" target="_blank" rel="noopener noreferrer">www.neoplast.biz</a><div class="neo-standards" aria-label="Certifications listed on the business card"><span>ISO 13485</span><span>ISO 9001</span></div></div></div>
         <details class="neo-company-details"><summary>Office Phones, Address &amp; Tax ID</summary><div class="neo-details-body"><div class="neo-detail"><small>OFFICE PHONE</small><a href="tel:+6628700995">+66 (0) 2 870-0995</a></div><div class="neo-detail"><small>OFFICE PHONE</small><a href="tel:+6624273393">+66 (0) 2 427-3393</a></div><div class="neo-detail neo-address"><small>ADDRESS</small><span>506 Soi Rama 2 Soi 13, Bang Mot, Chom Thong, Bangkok 10150, Thailand</span></div><div class="neo-detail"><small>TAX ID</small><span>0105548151656</span></div></div></details>
-        <div class="neo-company-qr"><button type="button" data-qr-kind="company" aria-label="Enlarge company business card QR code"><img src="/suttichai-company-qr.png" alt="Company business card QR code" width="320" height="320" loading="lazy" /></button><div><h3>Company Business Card QR Code</h3><p>This QR code opens the company link printed on the original business card.</p><a href="https://s.dc365.online/K" target="_blank" rel="noopener noreferrer">s.dc365.online/K</a></div><button class="neo-tool" type="button" data-qr-kind="company">Enlarge QR</button></div>
       </section>
       <footer class="neo-footer"><span>NEO PLASTOMER CO., LTD.</span><a href="https://becard.biz/">Becard · Digital Contact</a></footer>
     </div>
   </main>
-  <dialog class="neo-dialog" id="qr-dialog" aria-labelledby="qr-title"><div class="neo-dialog-inner"><div class="neo-dialog-top"><h2 id="qr-title">Becard QR Code</h2><button class="neo-close" type="button" aria-label="Close dialog">×</button></div><img class="neo-dialog-image" id="qr-image" src="/suttichai-becard-qr.png" alt="QR code for Suttichai Phongpheat's Becard" width="960" height="960" /><p class="neo-dialog-note" id="qr-note">Scan to open <a href="https://becard.biz/Suttichai">becard.biz/Suttichai</a></p><a class="neo-dialog-action" id="qr-destination" href="https://becard.biz/Suttichai" target="_blank" rel="noopener noreferrer">Open destination</a></div></dialog>
+  <dialog class="neo-dialog" id="qr-dialog" aria-labelledby="qr-title"><div class="neo-dialog-inner"><div class="neo-dialog-top"><h2 id="qr-title">Becard Profile QR</h2><button class="neo-close" type="button" aria-label="Close dialog">×</button></div><p class="neo-dialog-kicker">SCAN TO CONNECT</p><div class="neo-qr-tabs" role="group" aria-label="Choose a QR code"><button class="neo-qr-tab" type="button" data-qr-choice="becard" aria-pressed="true">Becard Profile</button><button class="neo-qr-tab" type="button" data-qr-choice="company" aria-pressed="false">Company Link</button></div><img class="neo-dialog-image" id="qr-image" src="/suttichai-becard-qr.png" alt="QR code for Suttichai Phongpheat's Becard" width="320" height="320" /><p class="neo-dialog-note" id="qr-note">Scan to open <a href="https://becard.biz/Suttichai">becard.biz/Suttichai</a></p><a class="neo-dialog-action" id="qr-destination" href="https://becard.biz/Suttichai" target="_blank" rel="noopener noreferrer">Open Becard Profile</a></div></dialog>
   <script>
-    (()=>{const pageUrl="https://becard.biz/Suttichai",dialog=document.getElementById("qr-dialog"),qrImage=document.getElementById("qr-image"),qrTitle=document.getElementById("qr-title"),qrNote=document.getElementById("qr-note"),qrDestination=document.getElementById("qr-destination"),status=document.getElementById("action-status"),qrChoices={becard:{title:"Becard QR Code",image:"/suttichai-becard-qr.png",alt:"QR code for Suttichai Phongpheat's Becard",url:pageUrl,label:"becard.biz/Suttichai"},company:{title:"Company Business Card QR Code",image:"/suttichai-company-qr.png",alt:"NEO PLASTOMER company business card QR code",url:"https://s.dc365.online/K",label:"s.dc365.online/K"}};document.querySelectorAll("[data-qr-kind]").forEach(button=>button.addEventListener("click",()=>{const item=qrChoices[button.dataset.qrKind];qrTitle.textContent=item.title;qrImage.src=item.image;qrImage.alt=item.alt;qrNote.innerHTML=`Scan to open <a href="${item.url}" target="_blank" rel="noopener noreferrer">${item.label}</a>`;qrDestination.href=item.url;dialog.showModal()}));document.querySelector(".neo-close").addEventListener("click",()=>dialog.close());dialog.addEventListener("click",event=>{if(event.target===dialog)dialog.close()});document.getElementById("share-card").addEventListener("click",async()=>{try{if(navigator.share){await navigator.share({title:"Suttichai Phongpheat | NEO PLASTOMER",text:"Medical Device Consultant · NEO PLASTOMER CO., LTD.",url:pageUrl});status.textContent="Share options opened";return}await navigator.clipboard.writeText(pageUrl);status.textContent="Becard link copied"}catch(error){if(error.name!=="AbortError")status.textContent="Sharing is unavailable on this device. Copy the link from the Becard QR code."}});document.getElementById("write-nfc").addEventListener("click",async()=>{if(!( "NDEFReader" in window)){status.textContent="This device does not support NFC writing in the browser. Try Chrome on Android or an NFC Writer app.";return}try{const writer=new NDEFReader();await writer.write({records:[{recordType:"url",data:pageUrl}]});status.textContent="Becard link written to NFC tag"}catch(error){status.textContent=error.name==="NotAllowedError"?"Allow NFC access in your browser, then try again":"Could not write to NFC. Tap the tag and try again."}})})();
+    (()=>{
+      const pageUrl="https://becard.biz/Suttichai";
+      const dialog=document.getElementById("qr-dialog");
+      const qrImage=document.getElementById("qr-image");
+      const qrTitle=document.getElementById("qr-title");
+      const qrNote=document.getElementById("qr-note");
+      const qrDestination=document.getElementById("qr-destination");
+      const status=document.getElementById("action-status");
+      const qrChoices={
+        becard:{title:"Becard Profile QR",image:"/suttichai-becard-qr.png",alt:"QR code for Suttichai Phongpheat's Becard",url:pageUrl,label:"becard.biz/Suttichai",action:"Open Becard Profile"},
+        company:{title:"Company Business Card QR",image:"/suttichai-company-qr.png",alt:"NEO PLASTOMER company business card QR code",url:"https://s.dc365.online/K",label:"s.dc365.online/K",action:"Open Company Link"}
+      };
+      const selectQr=kind=>{
+        const item=qrChoices[kind];
+        qrTitle.textContent=item.title;
+        qrImage.src=item.image;
+        qrImage.alt=item.alt;
+        qrNote.replaceChildren(document.createTextNode("Scan to open "));
+        const destinationLabel=document.createElement("a");
+        destinationLabel.href=item.url;
+        destinationLabel.target="_blank";
+        destinationLabel.rel="noopener noreferrer";
+        destinationLabel.textContent=item.label;
+        qrNote.append(destinationLabel);
+        qrDestination.href=item.url;
+        qrDestination.textContent=item.action;
+        document.querySelectorAll("[data-qr-choice]").forEach(button=>button.setAttribute("aria-pressed",String(button.dataset.qrChoice===kind)));
+      };
+      document.getElementById("show-qr").addEventListener("click",()=>{
+        selectQr("becard");
+        if(!dialog.open)dialog.showModal();
+      });
+      document.querySelectorAll("[data-qr-choice]").forEach(button=>button.addEventListener("click",()=>selectQr(button.dataset.qrChoice)));
+      document.querySelector(".neo-close").addEventListener("click",()=>dialog.close());
+      dialog.addEventListener("click",event=>{if(event.target===dialog)dialog.close()});
+      document.getElementById("share-card").addEventListener("click",async()=>{
+        try{
+          if(navigator.share){
+            await navigator.share({title:"Suttichai Phongpheat | NEO PLASTOMER",text:"Medical Device Consultant · NEO PLASTOMER CO., LTD.",url:pageUrl});
+            status.textContent="Share options opened";
+            return;
+          }
+          await navigator.clipboard.writeText(pageUrl);
+          status.textContent="Becard link copied";
+        }catch(error){
+          if(error.name!=="AbortError")status.textContent="Sharing is unavailable on this device. Copy the link from the Becard QR code.";
+        }
+      });
+      document.getElementById("write-nfc").addEventListener("click",async()=>{
+        if(!( "NDEFReader" in window)){
+          status.textContent="This device does not support NFC writing in the browser. Try Chrome on Android or an NFC Writer app.";
+          return;
+        }
+        try{
+          const writer=new NDEFReader();
+          await writer.write({records:[{recordType:"url",data:pageUrl}]});
+          status.textContent="Becard link written to NFC tag";
+        }catch(error){
+          status.textContent=error.name==="NotAllowedError"?"Allow NFC access in your browser, then try again":"Could not write to NFC. Tap the tag and try again.";
+        }
+      });
+    })();
   </script>
 </body>
 </html>
