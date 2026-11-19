@@ -76,17 +76,11 @@
     .neo-dialog-top h2{margin:0;font-size:17px;line-height:1.25}
     .neo-close{width:40px;height:40px;flex:0 0 40px;border:1px solid var(--line);border-radius:50%;background:#ffffff0a;color:#fff;font-size:22px;cursor:pointer}
     .neo-dialog-kicker{margin:12px 0 0;color:var(--orange-light);font-size:10px;font-weight:700;letter-spacing:.14em}
-    .neo-qr-tabs{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin:12px auto 0;padding:4px;border:1px solid #ffffff14;border-radius:13px;background:#0f0e0d}
-    .neo-qr-tab{min-height:38px;padding:7px 9px;border:0;border-radius:9px;background:transparent;color:#b9b2a8;font-size:11px;font-weight:600;cursor:pointer}
-    .neo-qr-tab[aria-pressed="true"]{background:#382318;color:#ffd2a5;box-shadow:inset 0 0 0 1px #f47a1f58}
-    .neo-qr-tab:focus-visible{outline:2px solid #ffc071;outline-offset:2px}
-    .neo-dialog-image{display:block;width:min(244px,68vw);height:auto;max-height:42svh;aspect-ratio:1/1;margin:15px auto 12px;padding:7px;object-fit:contain;border:1px solid #ffffff22;border-radius:18px;background:#fff;box-shadow:0 10px 35px #0006}
+    .neo-dialog-qr-frame{width:min(270px,78vw);aspect-ratio:1;margin:14px auto 12px;overflow:hidden;border:1px solid #ffffff22;border-radius:18px;background:#fff;box-shadow:0 10px 35px #0006}
+    .neo-dialog-image{position:relative;left:-10%;top:-10%;display:block;width:120%;height:120%;max-width:none;max-height:none;margin:0;padding:0;aspect-ratio:1;object-fit:cover;border:0;border-radius:0;background:#fff;box-shadow:none}
     .neo-dialog-note{margin:0;color:#c8c0b6;font-size:12px;line-height:1.5;overflow-wrap:anywhere}
     .neo-dialog-note a{color:#ffc17f;text-decoration:none}
-    .neo-dialog-action{display:inline-flex;align-items:center;justify-content:center;min-height:42px;margin-top:12px;padding:0 17px;border:1px solid #f47a1f70;border-radius:12px;background:#f47a1f16;color:#ffd0a0;text-decoration:none;font-size:12px;font-weight:700;transition:background .18s,border-color .18s}
-    .neo-dialog-action:hover{background:#f47a1f28;border-color:#f47a1f}
-    @media(max-width:420px){.neo-tools{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.neo-tool{min-height:68px;padding:9px}.neo-tool-qr{min-height:58px}.neo-tool-copy strong{font-size:12px}.neo-tool-copy small{font-size:9px}.neo-dialog-inner{padding:14px}.neo-dialog-image{width:min(224px,66vw);margin:12px auto 10px}.neo-dialog-kicker{margin-top:9px}.neo-qr-tabs{margin-top:9px}}
-    @media(prefers-reduced-motion:reduce){.neo-tool,.neo-dialog-action{transition:none}}
+    @media(max-width:420px){.neo-tools{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.neo-tool{min-height:68px;padding:9px}.neo-tool-qr{min-height:58px}.neo-tool-copy strong{font-size:12px}.neo-tool-copy small{font-size:9px}.neo-dialog-inner{padding:14px}.neo-dialog-qr-frame{width:min(260px,78vw);margin:11px auto 10px}.neo-dialog-kicker{margin-top:9px}}
   </style>
 </head>
 <body>
@@ -115,7 +109,7 @@
           <div class="neo-tools" aria-label="Contact card tools">
             <button class="neo-tool" id="share-card" type="button"><span class="neo-tool-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 15V3m0 0L7.5 7.5M12 3l4.5 4.5"/><path d="M5 12.5v6A2.5 2.5 0 0 0 7.5 21h9a2.5 2.5 0 0 0 2.5-2.5v-6"/></svg></span><span class="neo-tool-copy"><strong>Share Card</strong><small>Send your contact profile</small></span></button>
             <button class="neo-tool" id="write-nfc" type="button"><span class="neo-tool-mark text-mark" aria-hidden="true">NFC</span><span class="neo-tool-copy"><strong>Write to NFC</strong><small>Save this profile to a tag</small></span></button>
-            <button class="neo-tool neo-tool-qr" id="show-qr" type="button"><span class="neo-tool-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3z"/><path d="M14 14h3v3h-3zM19 14h2M19 17v4M14 20h3"/></svg></span><span class="neo-tool-copy"><strong>Show QR Code</strong><small>Choose your Becard profile or company link</small></span></button>
+            <button class="neo-tool neo-tool-qr" id="show-qr" type="button"><span class="neo-tool-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3z"/><path d="M14 14h3v3h-3zM19 14h2M19 17v4M14 20h3"/></svg></span><span class="neo-tool-copy"><strong>Show QR Code</strong><small>Scan to open this Becard profile</small></span></button>
           </div>
           <p class="neo-status" id="action-status" role="status" aria-live="polite"></p>
         </div>
@@ -129,41 +123,15 @@
       <footer class="neo-footer"><span>NEO PLASTOMER CO., LTD.</span><a href="https://becard.biz/">Becard · Digital Contact</a></footer>
     </div>
   </main>
-  <dialog class="neo-dialog" id="qr-dialog" aria-labelledby="qr-title"><div class="neo-dialog-inner"><div class="neo-dialog-top"><h2 id="qr-title">Becard Profile QR</h2><button class="neo-close" type="button" aria-label="Close dialog">×</button></div><p class="neo-dialog-kicker">SCAN TO CONNECT</p><div class="neo-qr-tabs" role="group" aria-label="Choose a QR code"><button class="neo-qr-tab" type="button" data-qr-choice="becard" aria-pressed="true">Becard Profile</button><button class="neo-qr-tab" type="button" data-qr-choice="company" aria-pressed="false">Company Link</button></div><img class="neo-dialog-image" id="qr-image" src="/suttichai-becard-qr.png" alt="QR code for Suttichai Phongpheat's Becard" width="320" height="320" /><p class="neo-dialog-note" id="qr-note">Scan to open <a href="https://becard.biz/Suttichai">becard.biz/Suttichai</a></p><a class="neo-dialog-action" id="qr-destination" href="https://becard.biz/Suttichai" target="_blank" rel="noopener noreferrer">Open Becard Profile</a></div></dialog>
+  <dialog class="neo-dialog" id="qr-dialog" aria-labelledby="qr-title"><div class="neo-dialog-inner"><div class="neo-dialog-top"><h2 id="qr-title">Becard Profile QR</h2><button class="neo-close" type="button" aria-label="Close dialog">×</button></div><p class="neo-dialog-kicker">SCAN TO CONNECT</p><div class="neo-dialog-qr-frame"><img class="neo-dialog-image" id="qr-image" src="/suttichai-becard-qr.png" alt="QR code for Suttichai Phongpheat's Becard" width="320" height="320" /></div><p class="neo-dialog-note" id="qr-note">Scan to open <a href="https://becard.biz/Suttichai">becard.biz/Suttichai</a></p></div></dialog>
   <script>
     (()=>{
       const pageUrl="https://becard.biz/Suttichai";
       const dialog=document.getElementById("qr-dialog");
-      const qrImage=document.getElementById("qr-image");
-      const qrTitle=document.getElementById("qr-title");
-      const qrNote=document.getElementById("qr-note");
-      const qrDestination=document.getElementById("qr-destination");
       const status=document.getElementById("action-status");
-      const qrChoices={
-        becard:{title:"Becard Profile QR",image:"/suttichai-becard-qr.png",alt:"QR code for Suttichai Phongpheat's Becard",url:pageUrl,label:"becard.biz/Suttichai",action:"Open Becard Profile"},
-        company:{title:"Company Business Card QR",image:"/suttichai-company-qr.png",alt:"NEO PLASTOMER company business card QR code",url:"https://s.dc365.online/K",label:"s.dc365.online/K",action:"Open Company Link"}
-      };
-      const selectQr=kind=>{
-        const item=qrChoices[kind];
-        qrTitle.textContent=item.title;
-        qrImage.src=item.image;
-        qrImage.alt=item.alt;
-        qrNote.replaceChildren(document.createTextNode("Scan to open "));
-        const destinationLabel=document.createElement("a");
-        destinationLabel.href=item.url;
-        destinationLabel.target="_blank";
-        destinationLabel.rel="noopener noreferrer";
-        destinationLabel.textContent=item.label;
-        qrNote.append(destinationLabel);
-        qrDestination.href=item.url;
-        qrDestination.textContent=item.action;
-        document.querySelectorAll("[data-qr-choice]").forEach(button=>button.setAttribute("aria-pressed",String(button.dataset.qrChoice===kind)));
-      };
       document.getElementById("show-qr").addEventListener("click",()=>{
-        selectQr("becard");
         if(!dialog.open)dialog.showModal();
       });
-      document.querySelectorAll("[data-qr-choice]").forEach(button=>button.addEventListener("click",()=>selectQr(button.dataset.qrChoice)));
       document.querySelector(".neo-close").addEventListener("click",()=>dialog.close());
       dialog.addEventListener("click",event=>{if(event.target===dialog)dialog.close()});
       document.getElementById("share-card").addEventListener("click",async()=>{
