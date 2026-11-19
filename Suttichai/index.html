@@ -44,10 +44,12 @@
     @media(max-width:780px){.neo-wrap{width:min(100% - 28px,560px);padding-top:17px}.neo-topbar{gap:12px;padding-bottom:16px}.neo-topbar img{width:72px;height:54px}.neo-brand-name strong{font-size:13px}.neo-brand-name span{font-size:8px}.neo-top-note{font-size:9px}.neo-hero{grid-template-columns:1fr;gap:30px;padding:36px 7px 37px}.neo-photo-wrap{order:-1;width:min(66vw,270px)}.neo-copy{width:100%}.neo-eyebrow{margin-bottom:16px;font-size:9px}.neo-name{font-size:clamp(40px,12vw,61px)}.neo-name-th{margin-top:14px;font-size:19px}.neo-role{font-size:15px}.neo-actions{margin-top:22px}.neo-section{padding:24px 7px 0}.neo-section-title{align-items:start;flex-direction:column;gap:7px}.neo-section-title h2{font-size:19px}.neo-section-title p{text-align:left}.neo-company{grid-template-columns:72px minmax(0,1fr);gap:13px;padding:13px}.neo-company-logo{width:72px;height:56px}.neo-company-info strong{font-size:13px}.neo-company-qr{grid-template-columns:78px minmax(0,1fr);gap:12px}.neo-company-qr button:first-child{width:78px;height:78px}.neo-company-qr .neo-tool{grid-column:1/-1;min-height:40px}.neo-footer{padding:22px 7px 0}}
     @media(max-width:420px){.neo-top-note{max-width:100px}.neo-actions{grid-template-columns:1fr}.neo-action{min-height:52px}.neo-link-row{display:grid;grid-template-columns:1fr}.neo-icon-link{width:100%}.neo-tools{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.neo-tool{min-height:46px}.neo-details-body{grid-template-columns:1fr}.neo-address{grid-column:auto}.neo-company-qr{grid-template-columns:70px minmax(0,1fr);padding:10px}.neo-company-qr button:first-child{width:70px;height:70px}.neo-footer{font-size:9px}}
     @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
-    .neo-link-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:13px}
-    .neo-icon-link{display:flex;width:100%;min-width:0;height:100%}
-    .neo-icon-link span:last-child{min-width:0;overflow-wrap:anywhere}
-    @media(max-width:420px){.neo-link-row{grid-template-columns:1fr}}
+    .neo-link-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));align-items:stretch;gap:10px;margin-top:13px}
+    .neo-icon-link{display:grid;grid-template-columns:38px minmax(0,1fr);align-items:center;gap:10px;width:100%;min-width:0;min-height:62px;height:100%;padding:10px 12px}
+    .neo-icon-link-mark{width:38px;height:38px;display:grid;place-items:center;border-radius:12px;background:#f47a1f18;color:var(--orange-light);font-size:10px;font-weight:800;letter-spacing:.03em}
+    .neo-icon-link-mark svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+    .neo-icon-link-mark.neo-line-mark{color:#8de24b}
+    .neo-icon-link span:last-child{min-width:0;overflow-wrap:anywhere;line-height:1.35}
     .neo-topbar img{background:transparent;border-radius:0;box-shadow:none;clip-path:ellipse(48.4% 47.7% at 50% 49.1%)}
     .neo-company-logo{background:transparent;border-radius:0;clip-path:ellipse(47.2% 47.7% at 50% 49.1%)}
     @media(max-width:780px){.neo-topbar img{clip-path:ellipse(48.9% 47.7% at 50% 49.1%)}.neo-company-logo{clip-path:ellipse(48.9% 46.1% at 50% 49.1%)}}
@@ -102,9 +104,9 @@
             <a class="neo-action" href="tel:+66929146964" aria-label="Call Suttichai at 092 914 6964"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.3 3.7 9.6 8a1.5 1.5 0 0 1-.3 1.7l-1.4 1.4a16 16 0 0 0 5 5l1.4-1.4a1.5 1.5 0 0 1 1.7-.3l4.3 2.3a1.5 1.5 0 0 1 .8 1.5V20a2 2 0 0 1-2 2C9.7 21.4 2.6 14.3 2 5a2 2 0 0 1 2-2h1.8a1.5 1.5 0 0 1 1.5.7Z"/></svg><span><strong>Call</strong><small>+66 (0) 9 2914-6964</small></span></a>
             <a class="neo-action primary" href="/suttichai-phongpheat.vcf" download="suttichai-phongpheat.vcf"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 17v3h14v-3"/></svg><span><strong>Save Contact</strong><small>Add to your contacts</small></span></a>
           </div>
-          <div class="neo-link-row">
-            <a class="neo-icon-link" href="mailto:phongpheat@gmail.com" aria-label="Email phongpheat@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="m4 7 8 6 8-6"/></svg><span>phongpheat@gmail.com</span></a>
-            <a class="neo-icon-link" href="https://line.me/ti/p/~phongpheat" target="_blank" rel="noopener noreferrer" aria-label="Add LINE ID phongpheat"><span aria-hidden="true" style="font-weight:700;color:#8de24b">LINE</span><span>phongpheat</span></a>
+          <div class="neo-link-row" aria-label="Email and LINE contact links">
+            <a class="neo-icon-link" href="mailto:phongpheat@gmail.com" aria-label="Email phongpheat@gmail.com"><span class="neo-icon-link-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="m4 7 8 6 8-6"/></svg></span><span>phongpheat@gmail.com</span></a>
+            <a class="neo-icon-link" href="https://line.me/ti/p/~phongpheat" target="_blank" rel="noopener noreferrer" aria-label="Add LINE ID phongpheat"><span class="neo-icon-link-mark neo-line-mark" aria-hidden="true">LINE</span><span>phongpheat</span></a>
           </div>
           <div class="neo-tools" aria-label="Contact card tools">
             <button class="neo-tool" id="share-card" type="button"><span class="neo-tool-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 15V3m0 0L7.5 7.5M12 3l4.5 4.5"/><path d="M5 12.5v6A2.5 2.5 0 0 0 7.5 21h9a2.5 2.5 0 0 0 2.5-2.5v-6"/></svg></span><span class="neo-tool-copy"><strong>Share Card</strong><small>Send your contact profile</small></span></button>
