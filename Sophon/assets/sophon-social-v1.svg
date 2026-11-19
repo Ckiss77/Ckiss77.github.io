@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <radialGradient id="warmGlow" cx="84%" cy="52%" r="70%"><stop offset="0" stop-color="#58250d" stop-opacity=".78"/><stop offset="1" stop-color="#111113" stop-opacity="0"/></radialGradient>
+    <linearGradient id="edge" x1="0" x2="1"><stop stop-color="#a94312"/><stop offset=".42" stop-color="#ffb05d"/><stop offset="1" stop-color="#f47a1f"/></linearGradient>
+    <linearGradient id="fade" x1="0" x2="1"><stop stop-color="#111113"/><stop offset=".62" stop-color="#111113" stop-opacity=".88"/><stop offset="1" stop-color="#111113" stop-opacity="0"/></linearGradient>
+    <linearGradient id="photoShade" x1="0" x2="0" y1="0" y2="1"><stop offset=".56" stop-color="#111113" stop-opacity="0"/><stop offset="1" stop-color="#111113" stop-opacity=".4"/></linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="12"/></filter>
+    <clipPath id="portraitClip"><rect x="804" y="48" width="334" height="534" rx="26"/></clipPath>
+  </defs>
+  <rect width="1200" height="630" fill="#111113"/>
+  <rect width="1200" height="630" fill="url(#warmGlow)"/>
+  <path d="M0 1H1200" stroke="url(#edge)" stroke-width="3"/>
+  <g opacity=".09" stroke="#fff"><path d="M0 112H1200M0 224H1200M0 336H1200M0 448H1200M0 560H1200"/><path d="M112 0V630M224 0V630M336 0V630M448 0V630M560 0V630M672 0V630"/></g>
+  <circle cx="840" cy="318" r="286" fill="#f47a1f" opacity=".18" filter="url(#glow)"/>
+  <ellipse cx="972" cy="316" rx="276" ry="142" fill="none" stroke="#ffb05d" stroke-opacity=".42" transform="rotate(-20 972 316)"/>
+  <ellipse cx="972" cy="316" rx="302" ry="160" fill="none" stroke="#f47a1f" stroke-opacity=".24" stroke-dasharray="3 11" transform="rotate(17 972 316)"/>
+  <circle cx="760" cy="237" r="6" fill="#ffc071"/><circle cx="760" cy="237" r="19" fill="#f47a1f" opacity=".35" filter="url(#glow)"/>
+  <rect x="804" y="48" width="334" height="534" rx="26" fill="#241c16" stroke="#f47a1f" stroke-opacity=".86" stroke-width="2"/>
+  <image x="804" y="48" width="334" height="534" preserveAspectRatio="xMidYMid slice" clip-path="url(#portraitClip)" xlink:href="sophon-profile.webp"/>
+  <rect x="804" y="48" width="334" height="534" rx="26" fill="url(#photoShade)"/>
+  <rect x="804" y="48" width="334" height="534" rx="26" fill="none" stroke="#ffb05d" stroke-opacity=".3"/>
+  <image x="63" y="51" width="78" height="58" preserveAspectRatio="xMidYMid meet" xlink:href="neo-logo.webp"/>
+  <text x="156" y="75" fill="#f9f3eb" font-family="Arial,sans-serif" font-size="17" font-weight="700" letter-spacing="3">NEO PLASTOMER</text>
+  <text x="156" y="99" fill="#d6ac82" font-family="Arial,sans-serif" font-size="10" letter-spacing="3">DIGITAL IDENTITY · ONE TAP AWAY</text>
+  <path d="M64 136H714" stroke="#ffffff" stroke-opacity=".17"/>
+  <circle cx="76" cy="187" r="4" fill="#f47a1f"/><text x="91" y="191" fill="#ffb05d" font-family="Arial,sans-serif" font-size="12" font-weight="700" letter-spacing="2.1">LEADERSHIP PROFILE</text>
+  <text x="62" y="278" fill="#fffdf8" font-family="Arial,sans-serif" font-size="64" font-weight="700" letter-spacing="-2.7">Sophon</text>
+  <text x="62" y="350" fill="#fffdf8" font-family="Arial,sans-serif" font-size="64" font-weight="700" letter-spacing="-2.7">Chinpong</text>
+  <text x="66" y="393" fill="#ded5ca" font-family="Tahoma,Arial,sans-serif" font-size="23">โสภณ จีนพงษ์</text>
+  <path d="M66 422H119" stroke="#f47a1f" stroke-width="3"/>
+  <text x="66" y="459" fill="#ffb05d" font-family="Arial,sans-serif" font-size="18" font-weight="700" letter-spacing=".7">Managing Director</text>
+  <text x="66" y="488" fill="#eee6dc" font-family="Arial,sans-serif" font-size="13" letter-spacing="1.5">NEO PLASTOMER CO., LTD.</text>
+  <rect x="64" y="529" width="244" height="39" rx="19.5" fill="#f47a1f" fill-opacity=".13" stroke="#f47a1f" stroke-opacity=".46"/>
+  <text x="84" y="554" fill="#ffd19d" font-family="Arial,sans-serif" font-size="12" font-weight="700" letter-spacing="1">BECARD.BIZ/SOPHON</text>
+  <text x="977" y="554" text-anchor="middle" fill="#fff8ef" font-family="Arial,sans-serif" font-size="10" font-weight="700" letter-spacing="2">NEO PLASTOMER</text>
+</svg>

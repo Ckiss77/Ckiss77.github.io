@@ -27,8 +27,8 @@
     "เขียนลิงก์ลง NFC Tag และเชื่อมต่อด้วยการแตะ": "Write the Becard URL to an NFC tag and connect with a tap.",
     "ข้อมูลเปลี่ยนได้โดยไม่ต้องเปลี่ยน QR หรือลิงก์": "Update details without replacing the QR code or URL.",
     "ออกแบบตามบุคลิก อาชีพ และแบรนด์ ไม่ใช่แค่กรอกแบบสำเร็จรูป": "Crafted around your role, personality and brand.",
-    "ผลงานจริง แต่ละใบไม่เหมือนกัน": "Thirteen real cards. Thirteen distinct identities.",
-    "สำรวจ Becard ที่เผยแพร่จริงทั้ง 13 ใบ แต่ละงานออกแบบจากตัวตน อาชีพ และแบรนด์ของเจ้าของการ์ดโดยเฉพาะ": "Explore thirteen published Becards, each designed around its owner's personality, profession and brand.",
+    "ผลงานจริง แต่ละใบไม่เหมือนกัน": "Fourteen real cards. Fourteen distinct identities.",
+    "สำรวจ Becard ที่เผยแพร่จริงทั้ง 14 ใบ แต่ละงานออกแบบจากตัวตน อาชีพ และแบรนด์ของเจ้าของการ์ดโดยเฉพาะ": "Explore fourteen published Becards, each designed around its owner's personality, profession and brand.",
     "ดูงานจริง ↗": "View live ↗",
     "ทุกใบปรับดีไซน์ใหม่ให้เข้ากับตัวตนและ Brand CI ของคุณ": "Every card is redesigned to match your identity and brand CI.",
     "สั่งทำผ่านแชต ดูแลตั้งแต่ต้นจนจบ": "Made-to-order, managed in chat",
@@ -93,6 +93,22 @@
     localStorage.setItem("becard-home-language", next);
   }
 
+  function addSophonReference() {
+    const grid = document.querySelector(".be-reference-grid");
+    if (!grid || grid.querySelector('[data-reference="sophon"]')) return;
+    const article = document.createElement("article");
+    article.className = "be-template be-reference-card be-theme-sophon";
+    article.dataset.reference = "sophon";
+    article.innerHTML = '<a class="be-reference-preview" href="/Sophon/" target="_blank" rel="noreferrer" aria-label="View Becard for Sophon Chinpong"><div class="be-template-preview"><div class="be-mini-top"><span>BECARD · 14</span><i></i></div><div class="be-reference-photo"><img src="/Sophon/assets/sophon-profile.webp" alt="Sophon Chinpong" loading="lazy" /></div><small>NEO PLASTOMER</small><h3>Sophon Chinpong</h3><p>Managing Director · NEO PLASTOMER</p><div class="be-mini-actions"><span>＋ CONTACT</span><span>⌁ SHARE</span></div><span class="be-live-badge"><i></i> LIVE</span></div></a><footer><div><strong>Sophon Chinpong</strong></div><a class="be-reference-link" href="/Sophon/" target="_blank" rel="noreferrer">View live ↗</a></footer></article>';
+    grid.append(article);
+    const kicker = document.querySelector(".be-templates .be-section-head .be-kicker");
+    const kickerText = [...(kicker?.childNodes || [])].reverse().find(node => node.nodeType === Node.TEXT_NODE && node.nodeValue.trim());
+    if (kickerText) kickerText.nodeValue = kickerText.nodeValue.replace("13 LIVE", "14 LIVE");
+    const description = document.querySelector(".be-templates .be-section-head > p");
+    if (description) description.textContent = "สำรวจ Becard ที่เผยแพร่จริงทั้ง 14 ใบ แต่ละงานออกแบบจากตัวตน อาชีพ และแบรนด์ของเจ้าของการ์ดโดยเฉพาะ";
+  }
+
+  addSophonReference();
   document.querySelector(".be-lang")?.addEventListener("click", () => applyLanguage(language === "th" ? "en" : "th"));
   if (language !== "th") applyLanguage(language);
 })();
